@@ -1,6 +1,5 @@
 # Prometheus Configuration
 
-```yaml
 # --------------------------------------------------------
 # GLOBAL SETTINGS
 # --------------------------------------------------------
@@ -87,6 +86,3 @@ scrape_configs:
           - __meta_ec2_tag_Name
 
         target_label: name
-```
-
----
