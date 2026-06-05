@@ -1,0 +1,60 @@
+# Alertmanager Configuration
+
+```yaml
+# --------------------------------------------------------
+# GLOBAL SETTINGS
+# --------------------------------------------------------
+
+global:
+
+  # Gmail SMTP server
+  smtp_smarthost: smtp.gmail.com:587
+
+  # Sender email
+  smtp_from: m.sivakmrreddy@gmail.com
+
+  # Gmail username
+  smtp_auth_username: m.sivakmrreddy@gmail.com
+
+  # Gmail App Password
+  smtp_auth_password: <APP_PASSWORD>
+
+  # SMTP identity
+  smtp_auth_identity: m.sivakmrreddy@gmail.com
+
+  # Enable TLS
+  smtp_require_tls: true
+
+  # Alert resolution timeout
+  resolve_timeout: 5m
+
+# --------------------------------------------------------
+# ALERT ROUTING
+# --------------------------------------------------------
+
+route:
+
+  # Default receiver
+  receiver: 'gmail-alerts'
+
+# --------------------------------------------------------
+# RECEIVERS
+# --------------------------------------------------------
+
+receivers:
+
+- name: 'gmail-alerts'
+
+  email_configs:
+
+  - to: info@joindevops.com
+
+    # Send email when alert resolves
+    send_resolved: true
+
+    headers:
+
+      Subject: '[{{ .Status | toUpper }}] {{ .CommonLabels.alertname }} ({{ .CommonLabels.severity }})'
+```
+
+---
