@@ -1,0 +1,41 @@
+# Systemd Service File
+
+```ini
+# --------------------------------------------------------
+# UNIT SECTION
+# --------------------------------------------------------
+
+[Unit]
+
+# Service description
+Description=A simple custom service
+
+# Start service after networking is available
+After=network.target
+
+# --------------------------------------------------------
+# SERVICE SECTION
+# --------------------------------------------------------
+
+[Service]
+
+# Simple long-running process
+Type=simple
+
+# Node Exporter binary
+ExecStart=/opt/node_exporter/node_exporter
+
+# Automatically restart if service crashes
+Restart=always
+
+# --------------------------------------------------------
+# INSTALL SECTION
+# --------------------------------------------------------
+
+[Install]
+
+# Start service during normal system boot
+WantedBy=multi-user.target
+```
+
+---
