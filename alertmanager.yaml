@@ -1,6 +1,5 @@
 # Alertmanager Configuration
 
-```yaml
 # --------------------------------------------------------
 # GLOBAL SETTINGS
 # --------------------------------------------------------
@@ -55,6 +54,3 @@ receivers:
     headers:
 
       Subject: '[{{ .Status | toUpper }}] {{ .CommonLabels.alertname }} ({{ .CommonLabels.severity }})'
-```
-
----
