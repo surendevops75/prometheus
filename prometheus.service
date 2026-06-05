@@ -1,0 +1,41 @@
+# Systemd Service File
+
+```i
+# --------------------------------------------------------
+# UNIT SECTION
+# --------------------------------------------------------
+
+[Unit]
+
+# Service description
+Description=A simple custom service
+
+# Start service only after networking is available
+After=network.target
+
+# --------------------------------------------------------
+# SERVICE SECTION
+# --------------------------------------------------------
+
+[Service]
+
+# Service type
+Type=simple
+
+# Command used to start Prometheus
+ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml
+
+# Automatically restart service if it stops
+Restart=always
+
+# --------------------------------------------------------
+# INSTALL SECTION
+# --------------------------------------------------------
+
+[Install]
+
+# Start service automatically during system boot
+WantedBy=multi-user.target
+```
+
+---
