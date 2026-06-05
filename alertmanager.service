@@ -1,0 +1,41 @@
+# Systemd Service File
+
+```ini
+# --------------------------------------------------------
+# UNIT SECTION
+# --------------------------------------------------------
+
+[Unit]
+
+# Service description
+Description=A simple custom service
+
+# Start service after network becomes available
+After=network.target
+
+# --------------------------------------------------------
+# SERVICE SECTION
+# --------------------------------------------------------
+
+[Service]
+
+# Long-running foreground process
+Type=simple
+
+# Alertmanager startup command
+ExecStart=/opt/alertmanager/alertmanager --config.file=/opt/alertmanager/alertmanager.yml
+
+# Automatically restart if process exits
+Restart=always
+
+# --------------------------------------------------------
+# INSTALL SECTION
+# --------------------------------------------------------
+
+[Install]
+
+# Start automatically during normal system boot
+WantedBy=multi-user.target
+```
+
+---
