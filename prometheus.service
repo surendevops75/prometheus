@@ -1,6 +1,5 @@
 # Systemd Service File
 
-```i
 # --------------------------------------------------------
 # UNIT SECTION
 # --------------------------------------------------------
@@ -36,6 +35,3 @@ Restart=always
 
 # Start service automatically during system boot
 WantedBy=multi-user.target
-```
-
----
